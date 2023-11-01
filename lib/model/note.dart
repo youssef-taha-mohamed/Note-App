@@ -1,30 +1,28 @@
-class Note{
 
-  String _title;
-  String _content;
-  String _image;
-  String saveTitle;
-
-
-  Note( this._title, this._content,this._image,[this.saveTitle='']);
+//name TEXT,address TEXT, phone INTEGER,id_number INTEGER,item TEXT,total_item INTEGER, monthly INTEGER, period INTEGER
+class Note {
+  final int? id;
+  final String title;
+  final String content;
 
 
+  Note({
+    this.id,
+    required this.title,
+    required this.content,
+  });
 
-  String get content => _content;
+  Note.fromMap(Map<String, dynamic> res)
+      : id = res["id"],
+        title = res["title"],
+        content = res["content"];
 
-  set content(String value) {
-    _content = value;
-  }
+  Map<String, Object?> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'content': content,
 
-  String get title => _title;
-
-  set title(String value) {
-    _title = value;
-  }
-
-  String get image => _image;
-
-  set image(String value) {
-    _image = value;
+    };
   }
 }
